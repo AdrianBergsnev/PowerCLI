@@ -1,13 +1,10 @@
 ﻿Import-Module Vmware.vimautomation.core
 
-Connect-VIServer "Host"
+Connect-VIServer 192.168.0.9
 
+$VMs = Get-VM -Name *16*
 
-$VMname = "VM"
-
-$VMs = Get-VM "Cypher"
-
-$DS = Get-Datastore -Name "Datastore"
+$DS = Get-Datastore -Name Logos
 
 $VMs | Move-VM -Datastore $DS
 
