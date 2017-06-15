@@ -2,9 +2,15 @@
 
 Connect-VIServer 192.168.0.9
 
-$VMs = Get-VM -Name *16*
+$VMs = @(
+"WIN - Morpheus"
+"LIN - Cypher"
+)
 
-$DS = Get-Datastore -Name Logos
+$VMcomm = Get-VM -Name $VMs
 
-$VMs | Move-VM -Datastore $DS
+$DS = Get-Datastore -Name Ghost
 
+
+
+$VMcomm | Move-VM -Datastore $DS
